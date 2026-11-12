@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 import { schema as surveySchema } from "../libs/survey"
+import { Link } from "react-router"
 
 export default function Form() {
   const { watch, register, handleSubmit, formState: { errors } } = useForm({
@@ -95,6 +96,7 @@ export default function Form() {
           <button type="reset">Reset</button>
         </div>
       </form >
+      <Link to={"/entries"} >Lihat entri yang terkirim</Link>
     </main>
   )
 }
