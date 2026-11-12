@@ -23,7 +23,7 @@ export default function Entries() {
         </h1>
         <div className="border-[1px] border-neutral-300 rounded-lg overflow-hidden bg-[white] mt-3">
           <table className="[&_td]:p-2 [&_th]:p-2 [&_tr>*]:text-center [&_tr>*]:text-sm table-auto">
-            <thead class="bg-indigo-600 text-[white] [&_th:not(:first-child)]:border-s-[1px] [&_th:not(:last-child)]:border-e-[1px]">
+            <thead className="bg-indigo-600 text-[white] [&_th:not(:first-child)]:border-s-[1px] [&_th:not(:last-child)]:border-e-[1px]">
               <tr>
                 <th scope="col" rowSpan={2}>Nama</th>
                 <th scope="col" rowSpan={2}>Umur</th>
@@ -31,7 +31,7 @@ export default function Entries() {
                 <th scope="col" rowSpan={2}>Perokok</th>
                 <th scope="colgroup" colSpan={4}>Rokok yang dipakai</th>
               </tr>
-              <tr class="*:border-t-[1px]">
+              <tr className="*:border-t-[1px]">
                 <th scope="col">Gudang Garam Filter</th>
                 <th scope="col">Lucky Strike</th>
                 <th scope="col">Marlboro</th>
@@ -39,7 +39,7 @@ export default function Entries() {
               </tr>
             </thead>
             <tbody
-              class="[&>*:nth-child(even)]:bg-indigo-100 [&_tr>*:not(:first-child)]:border-s-[1px] [&_tr>*]:border-[rgba(0,0,0,0.2)]">
+              className="[&>*:nth-child(even)]:bg-indigo-100 [&_tr>*:not(:first-child)]:border-s-[1px] [&_tr>*]:border-[rgba(0,0,0,0.2)]">
               {entries && entries.length >= 1 && entries.map(e => <tr>
                 <th scope="row">{e.name}</th>
                 <td>{e.age}</td>

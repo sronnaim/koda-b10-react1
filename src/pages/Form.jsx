@@ -1,13 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 import { schema as surveySchema } from "../libs/survey"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 
 export default function Form() {
-  const { watch, register, handleSubmit, formState: { errors } } = useForm({
+  const { watch, register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(surveySchema),
     mode: "onBlur"
   })
+
+  let navigate = useNavigate();
 
   const isSmoker = watch("isSmoker")
 
@@ -15,6 +17,8 @@ export default function Form() {
     const local = JSON.parse(localStorage.getItem("entries")) || []
     local.push(data)
     localStorage.setItem("entries", JSON.stringify(local))
+    navigate("/entries")
+    reset()
   }
 
   return (
@@ -98,7 +102,7 @@ export default function Form() {
           </div>}
           <div className="button-group flex justify-between [&>:first-child]:bg-indigo-600 [&>:first-child]:text-[white] last:*:text-indigo-600 *:font-medium *:rounded *:px-8 *:py-2">
             <button type="submit">Kirim form</button>
-            <button type="reset">Reset</button>
+            <button type="reset" onClick={() => reset()}>Reset</button>
           </div>
         </form >
         <Link to={"/entries"} className="text-indigo-600 underline" >Lihat entri yang terkirim</Link>
